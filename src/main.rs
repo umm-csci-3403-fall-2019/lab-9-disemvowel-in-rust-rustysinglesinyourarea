@@ -6,49 +6,21 @@ fn main() {
     println!("s was '{}', and without vowels is '{}'.", s, s_disemvowel);
 }
 
-fn disemvowel(word: &str) -> &str {
-    let v = vec!['a', 'e', 'i', 'o', 'u'];
+fn disemvowel(word: &str) -> String {
+    let v = vec!['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
 
     let char_vec: Vec<char> = word.chars().collect();
 
-    let mut _disemvoweled_vec = vec![""];
+    let mut _disemvoweled_vec = String::from("");
 
     for chara in char_vec {
         if !v.contains(&chara) {
-            _disemvoweled_vec.push(&chara.to_string());
+            _disemvoweled_vec.push(chara);
         }
     }
 
-    let disemvowed: String = _disemvoweled_vec.into_iter().collect();
-    
-    &disemvowed
+    _disemvoweled_vec
 }
-
-// fn disemvowel(word: &str) -> &str {
-//     let v = vec!['a', 'e', 'i', 'o', 'u'];
-
-//     let char_vec: Vec<char> = word.chars().collect();
-
-//     let mut disemvoweled_vec = String::from("");
-
-//     for chara in char_vec {
-//         if !v.contains(&chara) {
-//             disemvoweled_vec.push(chara);
-//         }
-//     }
-
-//     let disemvowed: String = disemvoweled_vec;
-    
-//     return disemvowed.to_string();
-// }
-
-// Everything from here down is Rust test code. You shouldn't need to 
-// change any of this. 
-//
-// Use `cargo test` to run all these tests. All the tests will initially 
-// fail because there's no definition for the `disemvowel` function. Add
-// that up above and work to get the tests to pass. See the lab write-up
-// for some tips.
 
 #[cfg(test)]
 mod tests {
